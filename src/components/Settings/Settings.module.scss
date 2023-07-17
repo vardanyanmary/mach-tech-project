@@ -1,0 +1,42 @@
+.Settings {
+    max-width: 600px;
+    max-height: 288px;
+    height: 100%;
+    border-radius: 10px;
+    background: #FFF;
+    box-shadow: var(--settings-box-shadow);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .settingsName {
+        max-width: 416px;
+        height: 56px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        color: var(--blue-color);
+        background-color: var(--bg-blue-color);
+        font-size: 16px;
+        font-weight: 700;
+        padding: var(--settings-padding);
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .mainSettings {
+        color: var(--light-black-color);
+        font-size: 12px;
+        font-weight: 400;
+        display: flex;
+        padding: var(--settings-padding);
+        align-items: center;
+    }
+}
+
+.setLine {
+    max-width: 550px;
+    height: 1px;
+    background: var(--line-color);
+    margin-left: 17px;
+}
