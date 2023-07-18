@@ -4,8 +4,28 @@ import thirdPhoto from "../shared/assets/Rectangle 21 (2).svg";
 import fourthPhoto from "../shared/assets/Rectangle 21 (3).svg";
 
 export const accessItems = [
-  { photo: firstPhoto, alt: "first", name: "Фамилия Имя Отчество" },
-  { photo: secondPhoto, alt: "second", name: "Фамилия Имя Отчество" },
-  { photo: thirdPhoto, alt: "third", name: "Фамилия Имя Отчество" },
-  { photo: fourthPhoto, alt: "forth", name: "Фамилия Имя Отчество" },
+  {
+    id: 1,
+    photo: firstPhoto,
+    alt: "first",
+    name: "Фамилия Имя Отчество",
+  },
+  {
+    id: 2,
+    photo: secondPhoto,
+    alt: "second",
+    name: "Фамилия Имя Отчество",
+  },
+  {
+    id: 3,
+    photo: thirdPhoto,
+    alt: "third",
+    name: "Фамилия Имя Отчество",
+  },
+  {
+    id: 4,
+    photo: fourthPhoto,
+    alt: "forth",
+    name: "Фамилия Имя Отчество",
+  },
 ];

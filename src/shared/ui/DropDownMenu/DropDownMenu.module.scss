@@ -9,8 +9,9 @@
     align-items: flex-start;
     border-radius: var(--dropDown-border-radius);
     box-shadow: var(--dropDown-box-shadow);
+    background-color: #FFFFFF;
 
-    .DropDownMenuP {
+    .DropDownOption {
         width: 76px;
         height: 32px;
         color: var(--black-color);

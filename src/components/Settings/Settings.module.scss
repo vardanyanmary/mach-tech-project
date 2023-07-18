@@ -1,6 +1,6 @@
+
 .Settings {
     max-width: 600px;
-    max-height: 288px;
     height: 100%;
     border-radius: 10px;
     background: #FFF;
@@ -31,6 +31,24 @@
         display: flex;
         padding: var(--settings-padding);
         align-items: center;
+    }
+}
+
+.SettingClose{
+    display: none;
+}
+
+.settingsHeader {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px 10px 0 0;
+    background-color: var(--bg-blue-color);
+
+    img{
+        padding-right: 35px;
+        cursor: pointer;
     }
 }
 
