@@ -9,35 +9,38 @@ import { ChangePassword } from "./components/ChangePassword/ChangePassword";
 import { Done } from "./components/Warnings/Done/Done";
 import { Wrong } from "./components/Warnings/Wrong/Wrong";
 import { Warn } from "./components/Warnings/Warn/Warn";
+import { Main } from "./components/Main/Main";
 
 const App = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isOpen1, setIsOpen1] = useState(false);
-  const [isOpen2, setIsOpen2] = useState(false);
+  // const [isOpen, setIsOpen] = useState(false);
+  // const [isOpen1, setIsOpen1] = useState(false);
+  // const [isOpen2, setIsOpen2] = useState(false);
 
-  const handleClose = () => {
-    setIsOpen(false);
-  };
-  const handleOpen = () => {
-    setIsOpen(true);
-  };
+  // const handleClose = () => {
+  //   setIsOpen(false);
+  // };
+  // const handleOpen = () => {
+  //   setIsOpen(true);
+  // };
 
-  const handleClose1 = () => {
-    setIsOpen1(false);
-  };
-  const handleOpen1 = () => {
-    setIsOpen1(true);
-  };
+  // const handleClose1 = () => {
+  //   setIsOpen1(false);
+  // };
+  // const handleOpen1 = () => {
+  //   setIsOpen1(true);
+  // };
 
-  const handleClose2 = () => {
-    setIsOpen2(false);
-  };
-  const handleOpen2 = () => {
-    setIsOpen2(true);
-  };
+  // const handleClose2 = () => {
+  //   setIsOpen2(false);
+  // };
+  // const handleOpen2 = () => {
+  //   setIsOpen2(true);
+  // };
   return (
     <div className="App">
-      <History />
+      <Main/>
+
+      {/* <History />
       <AddUser />
       <Access />
       <Settings />
@@ -64,7 +67,8 @@ const App = () => {
       ) : null}
 
       <ChangeFolder />
-      <ChangePassword />
+      <ChangePassword /> */}
+
     </div>
   );
 };
