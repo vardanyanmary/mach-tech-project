@@ -1,7 +1,7 @@
 import { useState } from "react";
 import cls from "./Settings.module.scss";
-import { AddUser } from "../AddUser/AddUser";
 import close from "../../shared/assets/Group 10.svg";
+import { AddAccess } from "../AddAccess/AddAccess";
 // import { PopUp } from '../../shared/ui/Pop-Up/Pop-Up';
 
 export const Settings = () => {
@@ -13,22 +13,18 @@ export const Settings = () => {
   const handleClick = () => {
     setVisibleDetails(!visibleDetails);
   };
-
   const handleEditPermissions = () => {
     setShowAddUser(!showAddUser);
   };
-
   const handleEditAccess = () => {
     setshowChangeUserAccess(!showChangeUserAccess);
   };
-
   // const handleClose = () => {
   //     setIsOpen(false);
   // };
   // const handleOpen = () => {
   //     setIsOpen(true);
   // };
-
   return (
     <>
       {!visibleDetails ? (
@@ -38,33 +34,33 @@ export const Settings = () => {
             <img src={close} alt="" className={cls.img} onClick={handleClick} />
           </div>
 
-          <p className={cls.mainSettings}>Импорт паролей</p>
+          <div className={cls.mainSettings}>Импорт паролей</div>
           <div className={cls.setLine}></div>
-          <p className={cls.mainSettings}>Экспорт данных в .CSV</p>
+          <div className={cls.mainSettings}>Экспорт данных в .CSV</div>
           <div className={cls.setLine}></div>
-          <p className={cls.mainSettings}>
+          <div className={cls.mainSettings}>
             Получить отчет действий пользователей
-          </p>
+          </div>
           <div className={cls.setLine}></div>
-          <p className={cls.mainSettings} onClick={handleEditPermissions}>
+          <div className={cls.mainSettings} onClick={handleEditPermissions}>
             Отредактировать права на корневую папку
-          </p>
+          </div>
           {showAddUser && (
             <div className={cls.addUserContainer}>
-              <AddUser />
+              <AddAccess />
             </div>
           )}
           <div className={cls.setLine}></div>
-          <p
+          <div
             className={cls.mainSettings}
             onClick={handleEditAccess}
             // onClick={handleOpen}
           >
             Забирать права
-          </p>
+          </div>
           {showChangeUserAccess && (
             <div className={cls.addUserContainer}>
-              <AddUser />
+              <AddAccess />
             </div>
           )}
           {/* {isOpen ?

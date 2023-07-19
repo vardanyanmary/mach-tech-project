@@ -19,22 +19,20 @@ const App = () => {
   };
   return (
     <div className="App">
-      {/*<History />
+      <History />
       <AddUser />
       <Access />
       <Settings />
       <button onClick={handleOpen}> click </button>
-      {isOpen ?
-        <PopUp
-          isOpen={isOpen}
-          onClose={handleClose} >
+      {isOpen ? (
+        <PopUp isOpen={isOpen} onClose={handleClose}>
           <DropDownMenu />
-        </PopUp> : null
-      } 
-      <ChangeFolder />*/}
-      <ChangePassword/>
+        </PopUp>
+      ) : null}
+      <ChangeFolder />
+      <ChangePassword />
     </div>
   );
-}
+};
 
 export default App;

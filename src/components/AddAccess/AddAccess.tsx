@@ -1,7 +1,6 @@
 import { useState } from "react";
-import cls from "./AddUser.module.scss";
+import cls from "./AddAccess.module.scss";
 import Select, { StylesConfig } from "react-select";
-import close from "../../shared/assets/Group 10.svg";
 import { ReactComponent as Add } from "../../shared/assets/добавление.svg";
 import { ReactComponent as Check } from "../../shared/assets/Rectangle 3980.svg";
 import { ReactComponent as Checked } from "../../shared/assets/Property 1=Variant2.svg";
@@ -13,7 +12,7 @@ const options = [
     { label: "Пусто" }
 ];
 
-export const AddUser = () => {
+export const AddAccess = () => {
     const [visibleDetails, setVisibleDetails] = useState(false);
     const [closeDetails, setCloseDetails] = useState(false);
 
@@ -49,11 +48,7 @@ export const AddUser = () => {
         <>
             {!closeDetails ? (
                 <section>
-                    <div className={cls.AddUser}>
-                        <div className={cls.addUserHeader}>
-                            <span className={cls.addUserName}>Добавление новых пользователей</span>
-                            <img src={close} alt="" className={cls.img} onClick={handleClose} />
-                        </div>
+                    <div className={cls.AddAccess}>
                         <input type="text" className={cls.inputAddUser} placeholder="Поиск" />
                         {addUserItems.map((addUserItem) => (
                             <div className={cls.hover}>

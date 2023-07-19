@@ -25,16 +25,23 @@
     }
 
     .mainSettings {
+        height: 47px;
         color: var(--light-black-color);
         font-size: 12px;
         font-weight: 400;
         display: flex;
         padding: var(--settings-padding);
         align-items: center;
+        cursor: pointer;
     }
+
+    .mainSettings:hover {
+        background-color: #E8F0FF;
+    }
+
 }
 
-.SettingClose{
+.SettingClose {
     display: none;
 }
 
@@ -46,7 +53,7 @@
     border-radius: 10px 10px 0 0;
     background-color: var(--bg-blue-color);
 
-    img{
+    img {
         padding-right: 35px;
         cursor: pointer;
     }

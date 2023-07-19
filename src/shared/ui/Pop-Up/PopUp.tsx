@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import cls from './Pop-Up.module.scss'
+import cls from './PopUp.module.scss'
 import { useClickOutside } from '../../../hooks/use-click-outside';
 
 interface PopUpProps {

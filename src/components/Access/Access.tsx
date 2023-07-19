@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import garbage from "../../shared/assets/Vector(2).svg";
+import garbage from "../../shared/assets/Vector (3).svg";
 import close from "../../shared/assets/Group 10.svg";
 import cls from "./Access.module.scss";
 import Select from "react-select";
 import { accessItems } from "../../constants/accessItems";
+import { AddUser } from "../AddUser/AddUser";
 
 const options = [
   { value: "Редактирование", label: "Редактирование" },
@@ -14,6 +15,11 @@ export const Access = () => {
   const [selected, setSelected] = useState(null);
   const [visibleDetails, setVisibleDetails] = useState(false);
   const [accessList, setAccessList] = useState(accessItems);
+  const [showChangeUserAccess, setShowChangeUserAccess] = useState(false);
+
+  const handleEditAccess = () => {
+    setShowChangeUserAccess(!showChangeUserAccess);
+  };
 
   const handleChange = (selectedOption: any) => {
     setSelected(selectedOption);
@@ -63,7 +69,18 @@ export const Access = () => {
               </div>
             </React.Fragment>
           ))}
-          <button className={cls.accessButton}>Добавить пользователя</button>
+          {!showChangeUserAccess && (
+            <button className={cls.accessButton} onClick={handleEditAccess}>
+              Добавить пользователя
+            </button>
+          )}
+          {showChangeUserAccess && (
+            <div className={cls.addUserContainer}>
+              <AddUser />
+            </div>
+          )}
+
+          {/* <button className={cls.accessButton}>Добавить пользователя</button> */}
         </section>
       ) : (
         <section className={cls.AccessClose}></section>
