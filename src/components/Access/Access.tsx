@@ -4,7 +4,7 @@ import close from "../../shared/assets/Group 10.svg";
 import cls from "./Access.module.scss";
 import Select from "react-select";
 import { accessItems } from "../../constants/accessItems";
-import { AddUser } from "../AddUser/AddUser";
+import { AddAccess } from "../AddAccess/AddAccess";
 
 const options = [
   { value: "Редактирование", label: "Редактирование" },
@@ -76,11 +76,12 @@ export const Access = () => {
           )}
           {showChangeUserAccess && (
             <div className={cls.addUserContainer}>
-              <AddUser />
+              <button className={cls.accessButton} onClick={handleEditAccess}>
+                Добавить пользователя
+              </button>
+              <AddAccess/>
             </div>
           )}
-
-          {/* <button className={cls.accessButton}>Добавить пользователя</button> */}
         </section>
       ) : (
         <section className={cls.AccessClose}></section>

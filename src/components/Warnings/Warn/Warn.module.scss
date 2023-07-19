@@ -1,0 +1,26 @@
+.close {
+    cursor: pointer;
+}
+
+.warnPart {
+    max-width: 347px;
+    max-height: 56px;
+    width: 100%;
+    border-radius: 10px;
+    background: #FFF0E8;
+    box-shadow: var(--pop-up-box-shadow);
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.text2Part {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    color: #AF6A42;
+    font-weight: 600;
+}

@@ -1,0 +1,26 @@
+.close {
+    cursor: pointer;
+}
+
+.donePart {
+    max-width: 347px;
+    max-height: 56px;
+    width: 100%;
+    border-radius: 10px;
+    background: #F1FFE8;
+    box-shadow: var(--pop-up-box-shadow);
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.textPart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    color: #548C32;
+    font-weight: 600;
+}
