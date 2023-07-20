@@ -25,10 +25,10 @@ export const ChangePassword = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     const handleClose = () => {
-      setIsOpen(false);
+        setIsOpen(false);
     };
     const handleOpen = () => {
-      setIsOpen(true);
+        setIsOpen(true);
     };
 
     return (

@@ -1,13 +1,17 @@
-
 .Access {
     max-width: 660px;
     width: 100%;
     border-radius: 10px;
     box-shadow: var(--settings-box-shadow);
     padding-bottom: 10px;
+
+    .addUserContainer {
+        max-width: 670px;
+        margin-left: 35px;
+    }
 }
 
-.AccessClose{
+.AccessClose {
     display: none;
 }
 
@@ -28,14 +32,13 @@
     align-items: center;
     border-radius: 10px 10px 0 0;
     background-color: var(--bg-blue-color);
-
-    img{
+    img {
         padding-right: 35px;
         cursor: pointer;
     }
 }
 
-.accessDiv{
+.accessDiv {
     margin: 10px 0;
     display: flex;
     justify-content: space-evenly;
@@ -61,7 +64,6 @@
     font: 700 14px/1 "Helvetica", sans-serif;
     margin-top: 10px;
     cursor: pointer;
-    margin-bottom: 10px;
 }
 
 .select {
@@ -81,7 +83,7 @@
     margin: 0 auto;
 }
 
-.garbage{
+.garbage {
     padding-right: 5px;
     cursor: pointer;
 }
