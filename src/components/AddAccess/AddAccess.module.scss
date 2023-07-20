@@ -1,13 +1,13 @@
 .AddAccess {
     max-width: 534px;
-    width: 100%;
+    width: 97%;
     max-height: 340px;
     height: 100%;
     border-radius: 10px;
     border: 1px solid var(--input-border-color);
     background: #FFF;
     padding-bottom: 10px;
-    margin-left: 15px;
+    margin: 0 auto;
 }
 
 .addUserName {
@@ -30,7 +30,7 @@
     justify-content: center;
     flex-direction: column;
     margin: 0 auto;
-    margin-left: 20px;
+    margin-left: 22px;
     .saveButton {
         max-width: 534px;
         width: 95%;
@@ -85,7 +85,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 7px;
+    padding: 5px;
 }
 
 .hover:hover {

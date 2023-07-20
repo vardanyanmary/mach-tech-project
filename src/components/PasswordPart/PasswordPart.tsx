@@ -4,10 +4,11 @@ import imgIcon from '../../shared/assets/Vector (12).svg'
 
 interface PasswordPartProps {
     name: string;
-    url: string;
+    url?: string;
+    content?:string[]
 }
 
-export const PasswordPart = ({ name, url }: PasswordPartProps) => {
+export const PasswordPart = ({ name, url, content }: PasswordPartProps) => {
     return (
         <div className={cls.passwordItem}>
             <div className={cls.namesPart}>

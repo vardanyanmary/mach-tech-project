@@ -3,7 +3,6 @@ import { Access } from "./components/Access/Access";
 import { AddUser } from "./components/AddUser/AddUser";
 import { History } from "./components/History/History";
 import { Settings } from "./components/Settings/Settings";
-import { PopUp } from "./shared/ui/Pop-Up/PopUp";
 import { ChangeFolder } from "./components/ChangeFolder/ChangeFolder";
 import { ChangePassword } from "./components/ChangePassword/ChangePassword";
 import { Done } from "./components/Warnings/Done/Done";

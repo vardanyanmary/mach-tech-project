@@ -16,7 +16,7 @@ export const Main = () => {
     <div className={cls.Main}>
       <LeftSection onFolderClick={handleFolderClick} />
       <CentralSection selectedFolder={selectedFolder} />
-      <RightSection/>
+      <RightSection selectedFolder={selectedFolder} />
     </div>
   );
 };

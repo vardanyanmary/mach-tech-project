@@ -3,8 +3,8 @@ import garbage from "../../shared/assets/Vector (3).svg";
 import close from "../../shared/assets/Group 10.svg";
 import { ChangeEvent, useState } from "react";
 import { DropDownMenu } from "../../shared/ui/DropDownMenu/DropDownMenu";
-import { PopUp } from "../../shared/ui/Pop-Up/PopUp";
 import { colorsIcons } from "../../constants/colorIcons";
+import { PopUp } from "../../shared/ui/Pop-Up/PopUp";
 
 export const ChangePassword = () => {
     const maxCommentLength = 1200;

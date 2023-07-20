@@ -1,13 +1,14 @@
 .Access {
-    max-width: 660px;
+    max-width: 760px;
     width: 100%;
     border-radius: 10px;
     box-shadow: var(--settings-box-shadow);
     padding-bottom: 10px;
+    background-color: #FFF;
 
     .addUserContainer {
-        max-width: 670px;
-        margin-left: 35px;
+        max-width: 700px;
+        // margin-left: 35px;
     }
 }
 
@@ -39,7 +40,7 @@
 }
 
 .accessDiv {
-    margin: 10px 0;
+    margin: 15px;
     display: flex;
     justify-content: space-evenly;
 }
@@ -52,7 +53,7 @@
 
 .accessButton {
     max-width: 534px;
-    width: 100%;
+    width: 94%;
     padding: 13px 14px;
     display: flex;
     justify-content: center;
@@ -86,4 +87,8 @@
 .garbage {
     padding-right: 5px;
     cursor: pointer;
+}
+
+.img{
+    padding-right: 10px;
 }

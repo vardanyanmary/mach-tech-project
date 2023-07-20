@@ -10,7 +10,6 @@ import folderIcon from "../../../shared/assets/Vector (11).svg";
 const LeftSection = ({ onFolderClick }: { onFolderClick: (folder: any) => void }) => {
   const [visibleSearchInput, setVisibleSearchInput] = useState(false);
   const [showFolders, setShowFolders] = useState(false);
-  const [showDropDown, setShowDropDown] = useState(false);
 
   const [folderStructure, setFolderStructure] = useState([
     {
@@ -52,11 +51,6 @@ const LeftSection = ({ onFolderClick }: { onFolderClick: (folder: any) => void }
     }
   };
 
-  const toggleDropDown = () => {
-    setShowDropDown(!showDropDown);
-  };
-
-
   return (
     <section className={cls.LeftSection}>
       <div className={cls.firstLine}>
@@ -76,7 +70,6 @@ const LeftSection = ({ onFolderClick }: { onFolderClick: (folder: any) => void }
                 <img src={folderIcon} alt="" className={cls.folderIcon} />
                 <p onClick={() => handleFolderClick(folder.id)}>{folder.name}</p>
               </div>
-              {/* <img src={menuPoints} alt="" onClick={toggleDropDown} className={cls.toggleImg} /> */}
             </div>
           ))}
         </div>

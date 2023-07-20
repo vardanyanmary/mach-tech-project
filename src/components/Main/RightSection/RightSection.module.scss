@@ -4,6 +4,7 @@
     height: 1001px;
     border-radius: 10px 0px 0px 10px;
     background: #FAFCFF;
+    z-index: 0;
 }
 
 .firstLine {
@@ -14,4 +15,73 @@
     background-color: var(--bg-blue-color);
     font-size: 16px;
     font-weight: 700;
+}
+
+.nameClass {
+    display: flex;
+    justify-content: space-between;
+
+    p {
+        color: var(--black-color);
+        font-size: 16px;
+        font-weight: 700;
+    }
+
+    .nameInput {
+        max-width: 295px;
+        width: 100%;
+        font-size: 16px;
+        height: 47px;
+        border-radius: 50px;
+        border: 1px solid #DFDFDF;
+        padding-left: 10px;
+    }
+}
+
+.descriptionClass {
+    p {
+        color: var(--black-color);
+        font-size: 16px;
+        font-weight: 700;
+    }
+
+    .description {
+        max-width: 396px;
+        width: 100%;
+        height: 110px;
+        flex-shrink: 0;
+        border-radius: 10px;
+        border: 1px solid #DFDFDF;
+        background: #FFF;
+    }
+}
+
+h2 {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 15px;
+    margin-top: 8px;
+}
+
+.buttonsDiv {
+    max-width: 436px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+}
+
+.changeButtons {
+    display: flex;
+    padding: 10px 14px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-radius: 555px;
+    background: #E8F0FF;
+    font-size: 12px;
+    font-weight: 600;
+    margin-left: 5px;
+    cursor: pointer;
 }

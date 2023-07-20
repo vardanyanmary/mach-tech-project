@@ -48,7 +48,7 @@ export const Access = () => {
                         <React.Fragment key={accessItem.id}>
                             <div>
                                 <div className={cls.accessDiv}>
-                                    <img src={accessItem.photo} alt={accessItem.alt} />
+                                    <img src={accessItem.photo} alt={accessItem.alt} className={cls.img}/>
                                     <span className={cls.nameSurname}>{accessItem.name}</span>
                                     <Select
                                         options={options}

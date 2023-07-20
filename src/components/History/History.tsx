@@ -7,7 +7,7 @@ export const History = () => {
       <p className={cls.historyName}>История</p>
       <div className={cls.historyMenu}>
         {menuItems.map((menuItem, index) => (
-          <div key={index}>
+          <div key={index} className={cls.div}>
             <img src={menuItem.icon} alt="" className={cls.img} />
             {menuItem.label}
           </div>
