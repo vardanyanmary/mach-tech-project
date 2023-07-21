@@ -1,9 +1,10 @@
 import cls from "./ChangeFolder.module.scss";
-import garbage from "../../shared/assets/Vector (2).svg";
-import close from "../../shared/assets/Group 10.svg";
+import garbage from "../../../../shared/assets/Vector (2).svg";
+import close from "../../../../shared/assets/Group 10.svg";
 import { useState } from "react";
-import { colorsIcons } from "../../constants/colorIcons";
-import { folderIcons } from "../../constants/folderIcons";
+import { colorsIcons } from "../../../../constants/colorIcons";
+import { folderIcons } from "../../../../constants/folderIcons";
+
 
 export const ChangeFolder = () => {
 

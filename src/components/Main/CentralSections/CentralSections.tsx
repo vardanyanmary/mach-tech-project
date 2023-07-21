@@ -1,10 +1,16 @@
 import cls from './CentralSections.module.scss';
 import star from '../../../shared/assets/Vector (8).svg';
+import addPassword from '../../../shared/assets/добавление (1).svg'
 import { useState } from 'react';
-import { PasswordPart } from '../../PasswordPart/PasswordPart';
+import { PasswordPart } from './PasswordPart/PasswordPart';
 
 interface CentralSectionProps {
-    selectedFolder: any;
+    selectedFolder: {
+        id: number;
+        name: string;
+        content: string[];
+        url: string[];
+    } | null;
 }
 
 export const CentralSection = ({ selectedFolder }: CentralSectionProps) => {
@@ -12,11 +18,14 @@ export const CentralSection = ({ selectedFolder }: CentralSectionProps) => {
     const [isSorted, setIsSorted] = useState(false);
 
     const sortedContent = selectedFolder
-        ? [...selectedFolder.content].sort((a: string, b: string) => {
+        ? selectedFolder.content.map((item, index) => ({
+            name: item,
+            url: selectedFolder.url[index],
+        })).sort((a, b) => {
             if (sortOrder === 'ascending') {
-                return a.localeCompare(b);
+                return a.name.localeCompare(b.name);
             } else {
-                return b.localeCompare(a);
+                return b.name.localeCompare(a.name);
             }
         })
         : [];
@@ -42,13 +51,19 @@ export const CentralSection = ({ selectedFolder }: CentralSectionProps) => {
                 <div>
                     {!isSorted &&
                         selectedFolder.content.map((item: string, index: number) => (
-                            <PasswordPart key={index} name={item} url={`https://www.site${index + 1}.com`} />
+                            <PasswordPart key={index} name={item} url={selectedFolder.url[index]} />
                         ))}
 
                     {isSorted &&
-                        sortedContent.map((item: string, index: number) => (
-                            <PasswordPart key={index} name={item} url={`https://www.site${index + 1}.com`} />
+                        sortedContent.map((item: { name: string; url: string }, index: number) => (
+                            <PasswordPart key={index} name={item.name} url={item.url} />
                         ))}
+                </div>
+            )}
+            {!selectedFolder && (
+                <div className={cls.emptyPassword}>
+                    <img src={addPassword} alt="" className={cls.addIcon} />
+                    <p>Добавить пароль</p>
                 </div>
             )}
         </section>

@@ -1,21 +1,24 @@
-// RightSection.jsx
 import React, { useState } from "react";
 import cls from "./RightSection.module.scss";
-import { PasswordPart } from "../../PasswordPart/PasswordPart";
 import block from "../../../shared/assets/Vector (14).svg";
 import history from "../../../shared/assets/Vector (15).svg";
 import change from "../../../shared/assets/Vector (16).svg";
 import link from "../../../shared/assets/Link_Break.svg";
-import { Access } from "../../Access/Access";
 import { PopUp } from "../../../shared/ui/Pop-Up/PopUp";
-import { History } from "../../History/History";
+import { Access } from "./Access/Access";
+import { History } from "./History/History";
+import { ChangeFolder } from "./ChangeFolder/ChangeFolder";
+import { Done } from "../../../shared/ui/Warnings/Done/Done";
 
 interface RightSectionProps {
   selectedFolder: {
+    id: number;
     name: string;
     content: string[];
-    isOpen: boolean;
-  } | null;
+    url: string[];
+    onClick: () => void;
+    isOpen: boolean
+  } | null
 }
 
 export const RightSection = ({ selectedFolder }: RightSectionProps) => {
@@ -23,38 +26,31 @@ export const RightSection = ({ selectedFolder }: RightSectionProps) => {
   const [isOpenBlock, setIsOpenBlock] = useState(false);
   const [isOpenStory, setIsOpenStory] = useState(false);
   const [isOpenChange, setIsOpenChange] = useState(false);
-  const [isOpenLink, setIsOpenLink] = useState(false);
+  const [isCopiedLink, setIsCopiedLink] = useState(false);
 
-  const handleCloseBlock = () => {
-    setIsOpenBlock(false);
+  const handleCloseBlock = () => { setIsOpenBlock(false) };
+  const handleOpenBlock = () => { setIsOpenBlock(true) };
+  const handleDescriptionChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setFolderDescription(event.target.value)
   };
-  const handleOpenBlock = () => {
-    setIsOpenBlock(true);
-  };
-
-  const handleDescriptionChange = (
-    event: React.ChangeEvent<HTMLTextAreaElement>
-  ) => {
-    setFolderDescription(event.target.value);
-  };
-
   //------------------------
-
-  const handleCloseHistory = () => {
-    setIsOpenStory(false);
-  };
-  const handleOpenHistory = () => {
-    setIsOpenStory(true);
-  };
+  const handleCloseHistory = () => { setIsOpenStory(false) };
+  const handleOpenHistory = () => { setIsOpenStory(true) };
+  //------------------------
+  const handleCloseChange = () => { setIsOpenChange(false) };
+  const handleOpenChange = () => { setIsOpenChange(true) };
+  //------------------------
+  const handleCloseCopied = () => { setIsCopiedLink(false) };
+  const handleOpenCopied = () => { setIsCopiedLink(true) };
 
   return (
     <section className={cls.RightSection}>
       <div className={cls.firstLine}>
         {selectedFolder && (
           <div>
-            <h2 className={cls.folderName}>{selectedFolder.name}</h2>
             {!selectedFolder.isOpen && (
               <div>
+                <h2 className={cls.folderName}>{selectedFolder.name}</h2>
                 <div className={cls.nameClass}>
                   <p>Название</p>
                   <input
@@ -64,7 +60,6 @@ export const RightSection = ({ selectedFolder }: RightSectionProps) => {
                     readOnly
                   />
                 </div>
-
                 <div className={cls.descriptionClass}>
                   <p>Описание</p>
                   <textarea
@@ -95,22 +90,31 @@ export const RightSection = ({ selectedFolder }: RightSectionProps) => {
                       <History />
                     </PopUp>
                   ) : null}
-                  <div className={cls.changeButtons}>
+                  <div className={cls.changeButtons} onClick={handleOpenChange}>
                     <img src={change} alt="" />
                     <span>Изменить</span>
                   </div>
-                  <div className={cls.changeButtons}>
+                  {isOpenChange ? (
+                    <PopUp isOpen={isOpenChange} onClose={handleCloseChange}>
+                      <ChangeFolder />
+                    </PopUp>
+                  ) : null}
+                  <div className={cls.changeButtons} onClick={handleOpenCopied}>
                     <img src={link} alt="" />
                     <span>Ссылка</span>
                   </div>
+                  {isCopiedLink ? (
+                    <PopUp isOpen={isCopiedLink} onClose={handleCloseCopied}>
+                        <Done/>
+                    </PopUp>
+                  ) : null}
                 </div>
               </div>
             )}
             {selectedFolder.isOpen && (
-              <PasswordPart
-                name={selectedFolder.name}
-                content={selectedFolder.content}
-              />
+              <div className={cls.emptySection}>
+                <p>Тут пока ничего нет...</p>
+              </div>
             )}
           </div>
         )}

@@ -1,4 +1,4 @@
-import { menuItems } from "../../constants/historyMenuItems";
+import { menuItems } from "../../../../constants/historyMenuItems";
 import cls from "./History.module.scss";
 
 export const History = () => {

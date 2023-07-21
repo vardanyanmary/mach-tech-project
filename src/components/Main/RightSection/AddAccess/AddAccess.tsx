@@ -1,10 +1,11 @@
 import { useState } from "react";
 import cls from "./AddAccess.module.scss";
 import Select, { StylesConfig } from "react-select";
-import { ReactComponent as Add } from "../../shared/assets/добавление.svg";
-import { ReactComponent as Check } from "../../shared/assets/Rectangle 3980.svg";
-import { ReactComponent as Checked } from "../../shared/assets/Property 1=Variant2.svg";
-import { addUserItems } from "../../constants/addUserItems";
+import { ReactComponent as Add } from "../../../../shared/assets/добавление.svg";
+import { ReactComponent as Check } from "../../../../shared/assets/Rectangle 3980.svg";
+import { ReactComponent as Checked } from "../../../../shared/assets/Property 1=Variant2.svg";
+import { addUserItems } from "../../../../constants/addUserItems";
+
 
 const options = [
     { label: "Полный" },
@@ -18,11 +19,7 @@ export const AddAccess = () => {
 
     const handleClick = () => {
         setVisibleDetails(!visibleDetails);
-    };
-
-    const handleClose = () => {
-        setCloseDetails(!closeDetails);
-    };
+    }
 
     const CustomStyles: StylesConfig = {
         control: (baseStyles, state) => ({
@@ -41,8 +38,6 @@ export const AddAccess = () => {
             fontSize: "14px"
         }),
     };
-
-
 
     return (
         <>

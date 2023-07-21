@@ -59,3 +59,21 @@
 .toggleImg {
     cursor: pointer
 }
+.emptyfolder {
+    margin-top: 10px;
+    width: 283px;
+    height: 46px;
+    border-radius: 5px;
+    border: 1px dashed #AFB0B3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.addIcon {
+    width: 15px;
+    height: 15px;
+    padding-right: 15px;
+}

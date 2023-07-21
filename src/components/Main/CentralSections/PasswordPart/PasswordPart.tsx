@@ -1,14 +1,13 @@
 import cls from './PasswordPart.module.scss'
-import emptyStar from '../../shared/assets/Vector (13).svg'
-import imgIcon from '../../shared/assets/Vector (12).svg'
+import emptyStar from '../../../../shared/assets/Vector (13).svg'
+import imgIcon from '../../../../shared/assets/Vector (12).svg'
 
 interface PasswordPartProps {
     name: string;
     url?: string;
-    content?:string[]
 }
 
-export const PasswordPart = ({ name, url, content }: PasswordPartProps) => {
+export const PasswordPart = ({ name, url}: PasswordPartProps) => {
     return (
         <div className={cls.passwordItem}>
             <div className={cls.namesPart}>

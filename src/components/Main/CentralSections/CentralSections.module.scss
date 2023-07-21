@@ -18,3 +18,21 @@
 .sort {
     cursor: pointer;
 }
+
+.emptyPassword {
+    max-width:950px;
+    height: 46px;
+    margin: 10px;
+    border-radius: 5px;
+    border: 1px dashed #AFB0B3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.addIcon{
+    width: 15px;
+    height: 15px;
+    padding-right: 15px
+}

@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import garbage from "../../shared/assets/Vector (2).svg";
-import close from "../../shared/assets/Group 10.svg";
+import garbage from "../../../../shared/assets/Vector (2).svg";
+import close from "../../../../shared/assets/Group 10.svg";
 import cls from "./Access.module.scss";
 import Select from "react-select";
-// import { AddUser } from "../AddUser/AddUser";
 import { AddAccess } from "../AddAccess/AddAccess";
-import { accessItems } from "../../constants/accessItems";
+import { accessItems } from "../../../../constants/accessItems";
 
 const options = [
     { value: "Редактирование", label: "Редактирование" },
@@ -48,7 +47,7 @@ export const Access = () => {
                         <React.Fragment key={accessItem.id}>
                             <div>
                                 <div className={cls.accessDiv}>
-                                    <img src={accessItem.photo} alt={accessItem.alt} className={cls.img}/>
+                                    <img src={accessItem.photo} alt={accessItem.alt} />
                                     <span className={cls.nameSurname}>{accessItem.name}</span>
                                     <Select
                                         options={options}
@@ -84,9 +83,7 @@ export const Access = () => {
                         </div>
                     )}
                 </section>
-            ) : (
-                <section className={cls.AccessClose}></section>
-            )}
+            ) : null }
         </>
     );
 };

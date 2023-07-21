@@ -1,5 +1,5 @@
-import done from "../../../shared/assets/Vector (5).svg";
-import close from "../../../shared/assets/Group 28.svg";
+import done from "../../../../shared/assets/Vector (5).svg";
+import close from "../../../../shared/assets/Group 28.svg";
 import cls from "./Done.module.scss";
 
 export const Done = () => {

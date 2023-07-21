@@ -5,7 +5,8 @@ import close from "../../shared/assets/Group 10.svg";
 import { ReactComponent as Add } from "../../shared/assets/добавление.svg";
 import { ReactComponent as Check } from "../../shared/assets/Rectangle 3980.svg";
 import { ReactComponent as Checked } from "../../shared/assets/Property 1=Variant2.svg";
-import { addUserItems } from "../../constants/addUserItems";
+import { addUserItems } from "../../../../constants/addUserItems";
+
 
 const options = [
     { label: "Полный" },

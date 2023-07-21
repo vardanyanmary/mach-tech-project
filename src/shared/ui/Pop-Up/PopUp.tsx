@@ -32,14 +32,12 @@ export const PopUp: React.FC<PopUpProps> = ({ children, isOpen, onClose }) => {
   const ref = useClickOutside(handleOutsideClick);
 
   useEffect(() => {
-    // If the pop-up is open, we want to set it to be visible immediately
     if (isOpen) {
       setIsVisible(true);
     }
   }, [isOpen]);
 
   useEffect(() => {
-    // When the component is mounted, set the initial visibility based on the isOpen prop
     setIsVisible(isOpen);
   }, []);
 
