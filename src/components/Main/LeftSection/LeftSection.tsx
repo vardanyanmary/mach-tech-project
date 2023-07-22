@@ -8,63 +8,86 @@ import folderIcon from "../../../shared/assets/Vector (11).svg";
 import addFolder from "../../../shared/assets/добавление (1).svg";
 import { PopUp } from "../../../shared/ui/Pop-Up/PopUp";
 import { Settings } from "./Settings/Settings";
-import { passwordData } from "../../../constants/passwordData (1)";
-// import { PasswordPart } from "../../PasswordPart/PasswordPart";
+import { passwordData } from "../../../constants/passwordData";
 
-export const LeftSection = ({ onFolderClick }: { onFolderClick: (folder: any) => void }) => {
+export const LeftSection = ({
+  onFolderClick,
+}: {
+  onFolderClick: (folder: any) => void;
+}) => {
   const [visibleSearchInput, setVisibleSearchInput] = useState(false);
   const [showFolders, setShowFolders] = useState(false);
   const [isOpenSettings, setIsOpenSettings] = useState(false);
-  const [selectedFolder, setSelectedFolder] = useState<any>(null) 
 
-  const handleCloseSettings = () => { setIsOpenSettings(false) };
-  const handleOpenSettings = () => { setIsOpenSettings(true) };
+  const handleCloseSettings = () => {
+    setIsOpenSettings(false);
+  };
+  const handleOpenSettings = () => {
+    setIsOpenSettings(true);
+  };
 
-  const [folderStructure, setFolderStructure] = useState(() => passwordData.map((item, index) => ({
-    id: index + 1,
-    name: `Название папки ${index + 1}`,
-    content: item.map((item) => item.name[0]),
-    url: item.map((item) => item.url[0]),
-    isOpen: false,
-  })));
-
-  const handleClick = () => { setVisibleSearchInput(!visibleSearchInput) };
-  const toggleFolders = () => { setShowFolders(!showFolders) };
+  const handleClick = () => {
+    setVisibleSearchInput(!visibleSearchInput);
+  };
+  const toggleFolders = () => {
+    setShowFolders(!showFolders);
+  };
 
   const handleFolderClick = (folderId: number) => {
-    const clickedFolder = folderStructure.find((folder) => folder.id === folderId);
+    const clickedFolder = passwordData.find((folder) => folder.id === folderId);
     if (clickedFolder) {
-      setSelectedFolder(clickedFolder);
-      setFolderStructure((prevFolders) =>
-        prevFolders.map((folder) =>
-          folder.id === folderId ? { ...folder, isOpen: !folder.isOpen } : folder
-        )
-      );
       onFolderClick(clickedFolder);
     } else {
-      setSelectedFolder(null);
+      onFolderClick([]);
     }
   };
   return (
     <section className={cls.LeftSection}>
       <div className={cls.firstLine}>
-        {!visibleSearchInput && <img src={folder} alt="" onClick={toggleFolders} className={cls.toggleImg} />}
-        {!visibleSearchInput && <img src={key} alt="" className={cls.toggleImg} />}
-        {!visibleSearchInput && <img src={settings} alt="" className={cls.toggleImg} onClick={handleOpenSettings} />}
+        {!visibleSearchInput && (
+          <img
+            src={folder}
+            alt=""
+            onClick={toggleFolders}
+            className={cls.toggleImg}
+          />
+        )}
+        {!visibleSearchInput && (
+          <img src={key} alt="" className={cls.toggleImg} />
+        )}
+        {!visibleSearchInput && (
+          <img
+            src={settings}
+            alt=""
+            className={cls.toggleImg}
+            onClick={handleOpenSettings}
+          />
+        )}
         {isOpenSettings ? (
           <PopUp isOpen={isOpenSettings} onClose={handleCloseSettings}>
             <Settings />
           </PopUp>
         ) : null}
-        {visibleSearchInput && (<input type="text" placeholder="Поиск..." className={cls.searchInput} />)}
-        <img src={search} alt="" onClick={handleClick} className={cls.toggleImg} />
+        {visibleSearchInput && (
+          <input
+            type="text"
+            placeholder="Поиск..."
+            className={cls.searchInput}
+          />
+        )}
+        <img
+          src={search}
+          alt=""
+          onClick={handleClick}
+          className={cls.toggleImg}
+        />
       </div>
       {showFolders && (
-        <div className={cls.folderStructure}>
-          {folderStructure.map((folder) => (
+        <div className={cls.passwordData}>
+          {passwordData.map((folder) => (
             <div
               className={cls.foldersListItem}
-              onClick={() => handleFolderClick(folder.id)} // Pass the folder data when clicked
+              onClick={() => handleFolderClick(folder.id)}
               key={folder.id}
             >
               <div className={cls.foldersListItemDiv}>

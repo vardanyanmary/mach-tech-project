@@ -5,11 +5,13 @@ import imgIcon from '../../../../shared/assets/Vector (12).svg'
 interface PasswordPartProps {
     name: string;
     url?: string;
+    id?:number;
+    handleSearch?:any
 }
 
-export const PasswordPart = ({ name, url}: PasswordPartProps) => {
+export const PasswordPart = ({ id, name, url, handleSearch } : PasswordPartProps) => {
     return (
-        <div className={cls.passwordItem}>
+        <div className={cls.passwordItem} onClick={() => handleSearch(id)}>
             <div className={cls.namesPart}>
                 <img src={imgIcon} alt="" className={cls.imgIcon} />
                 <span>{name}</span>

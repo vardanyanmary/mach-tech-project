@@ -1,9 +1,9 @@
 import cls from "./ChangePassword.module.scss";
-import garbage from "../../shared/assets/Vector (3).svg";
-import close from "../../shared/assets/Group 10.svg";
+import garbage from "../../../../shared/assets/Vector (3).svg";
+import close from "../../../../shared/assets/Group 10.svg";
 import warning from '../../../../shared/assets/Vector (17).svg'
 import reset from '../../../../shared/assets/Vector (18).svg'
-import { ChangeEvent, useState } from "react";
+import { useState } from "react";
 import { colorsIcons } from "../../../../constants/colorIcons";
 
 export const ChangePassword = () => {
@@ -90,10 +90,7 @@ export const ChangePassword = () => {
                                 </div>
 
                             ) : (
-                                <div className={cls.resetPassword}>
-                                    <img src={reset} alt="reset" />
-                                    <p>Придумать пароль</p>
-                                </div>
+                                <div> Done !!! </div>
                             )}
                         </div>
                         <div className={cls.partsDiv}>

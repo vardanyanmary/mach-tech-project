@@ -7,8 +7,14 @@ import { AddAccess } from "../AddAccess/AddAccess";
 import { accessItems } from "../../../../constants/accessItems";
 
 const options = [
-    { value: "Редактирование", label: "Редактирование" },
-    { value: "Чтение", label: "Чтение" },
+    { 
+        value: "Редактирование", 
+        label: "Редактирование" 
+    },
+    { 
+        value: "Чтение", 
+        label: "Чтение" 
+    },
 ];
 
 export const Access = () => {
