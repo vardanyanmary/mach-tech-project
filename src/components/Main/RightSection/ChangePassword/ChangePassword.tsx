@@ -90,7 +90,10 @@ export const ChangePassword = () => {
                                 </div>
 
                             ) : (
-                                <div> Done !!! </div>
+                                <div className={cls.resetPassword}>
+                                    <img src={reset} alt="reset" />
+                                    <p>Придумать пароль</p>
+                                </div>
                             )}
                         </div>
                         <div className={cls.partsDiv}>

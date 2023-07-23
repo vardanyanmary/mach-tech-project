@@ -6,8 +6,16 @@
 }
 
 .switch {
-    margin: 0;
     max-width: 80px;
     width: 100%;
-    height: 70px;
+    height: 43px;
+    border-radius: 5px;
+    background: var(--blue-color);
+    border: none;
+    color: #FFF;
+    font-size: 14px;
+    font-weight: 700;
+    margin-top: 10px;
+    margin-right: 3px;
+    cursor: pointer;
 }
