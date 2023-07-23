@@ -65,64 +65,66 @@ export const SelectedFolder = ({ selectedFolder }: SelectedFolderProps) => {
   return (
     <div>
       {selectedFolder && !selectedFolder.isOpen ? (
-        <div>
+        <>
           <h2 className={cls.folderName}>{selectedFolder.name}</h2>
-          <div className={cls.nameClass}>
-            <p>Название</p>
-            <input
-              type="text"
-              value={selectedFolder.name}
-              className={cls.nameInput}
-              readOnly
-            />
+          <div className={cls.mainPart}>
+            <div className={cls.nameClass}>
+              <p>Название</p>
+              <input
+                type="text"
+                value={selectedFolder.name}
+                className={cls.nameInput}
+                readOnly
+              />
+            </div>
+            <div className={cls.descriptionClass}>
+              <p>Описание</p>
+              <textarea
+                value={folderDescription}
+                onChange={handleDescriptionChange}
+                className={cls.description}
+              />
+            </div>
+            <div className={cls.buttonsDiv}>
+              <div className={cls.changeButtons} onClick={handleOpenBlock}>
+                <img src={block} alt="" />
+                <span>Доступ</span>
+              </div>
+              {isOpenBlock ? (
+                <PopUp isOpen={isOpenBlock} onClose={handleCloseBlock}>
+                  <Access />
+                </PopUp>
+              ) : null}
+              <div className={cls.changeButtons} onClick={handleOpenHistory}>
+                <img src={history} alt="" />
+                <span>История</span>
+              </div>
+              {isOpenStory ? (
+                <PopUp isOpen={isOpenStory} onClose={handleCloseHistory}>
+                  <History />
+                </PopUp>
+              ) : null}
+              <div className={cls.changeButtons} onClick={handleOpenChange}>
+                <img src={change} alt="" />
+                <span>Изменить</span>
+              </div>
+              {isOpenChange ? (
+                <PopUp isOpen={isOpenChange} onClose={handleCloseChange}>
+                  <ChangeFolder />
+                </PopUp>
+              ) : null}
+              <div className={cls.changeButtons} onClick={handleOpenCopied}>
+                <img src={link} alt="" />
+                <span>Ссылка</span>
+              </div>
+              {isCopiedLink ? (
+                <PopUp isOpen={isCopiedLink} onClose={handleCloseCopied}>
+                  <Done />
+                </PopUp>
+              ) : null}
+            </div>
           </div>
-          <div className={cls.descriptionClass}>
-            <p>Описание</p>
-            <textarea
-              value={folderDescription}
-              onChange={handleDescriptionChange}
-              className={cls.description}
-            />
-          </div>
-          <div className={cls.buttonsDiv}>
-            <div className={cls.changeButtons} onClick={handleOpenBlock}>
-              <img src={block} alt="" />
-              <span>Доступ</span>
-            </div>
-            {isOpenBlock ? (
-              <PopUp isOpen={isOpenBlock} onClose={handleCloseBlock}>
-                <Access />
-              </PopUp>
-            ) : null}
-            <div className={cls.changeButtons} onClick={handleOpenHistory}>
-              <img src={history} alt="" />
-              <span>История</span>
-            </div>
-            {isOpenStory ? (
-              <PopUp isOpen={isOpenStory} onClose={handleCloseHistory}>
-                <History />
-              </PopUp>
-            ) : null}
-            <div className={cls.changeButtons} onClick={handleOpenChange}>
-              <img src={change} alt="" />
-              <span>Изменить</span>
-            </div>
-            {isOpenChange ? (
-              <PopUp isOpen={isOpenChange} onClose={handleCloseChange}>
-                <ChangeFolder />
-              </PopUp>
-            ) : null}
-            <div className={cls.changeButtons} onClick={handleOpenCopied}>
-              <img src={link} alt="" />
-              <span>Ссылка</span>
-            </div>
-            {isCopiedLink ? (
-              <PopUp isOpen={isCopiedLink} onClose={handleCloseCopied}>
-                <Done />
-              </PopUp>
-            ) : null}
-          </div>
-        </div>
+        </>
       ) : (
         <div className={cls.emptySection}>
           <p>Тут пока ничего нет...</p>

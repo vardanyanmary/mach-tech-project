@@ -4,7 +4,7 @@ import { RightSection } from "./RightSection/RightSection";
 import { CentralSection } from "./CentralSections/CentralSections";
 import { LeftSection } from "./LeftSection/LeftSection";
 
-interface SelectedFolder {
+export interface SelectedFolder {
   id: number;
   name: string;
   content: string[];
@@ -23,12 +23,20 @@ export interface SelectedFolderItem {
 }
 
 export const Main = () => {
-  const [selectedFolder, setSelectedFolder] = useState<SelectedFolder | null>( null );
-  const [selectedFolderItem, setSelectedFolderItem] = useState<SelectedFolderItem | null>(null);
+  const [selectedFolder, setSelectedFolder] = useState<SelectedFolder | null>(
+    null
+  );
+  const [selectedFolderItem, setSelectedFolderItem] =
+    useState<SelectedFolderItem | null>(null);
   const [isPrivateMode, setIsPrivateMode] = useState<boolean>(false);
 
-  const handleFolderClick = (folder: SelectedFolder) => { setSelectedFolder(folder) };
-  const handleModeChange = () => { setIsPrivateMode(!isPrivateMode) };
+  const handleFolderClick = (folder: SelectedFolder) => {
+    setSelectedFolderItem(null);
+    setSelectedFolder(folder);
+  };
+  const handleModeChange = () => {
+    setIsPrivateMode(!isPrivateMode);
+  };
 
   return (
     <div className={cls.Main}>

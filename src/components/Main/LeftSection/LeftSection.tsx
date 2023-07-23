@@ -9,6 +9,7 @@ import addFolder from "../../../shared/assets/добавление (1).svg";
 import { PopUp } from "../../../shared/ui/Pop-Up/PopUp";
 import { Settings } from "./Settings/Settings";
 import { passwordData } from "../../../constants/passwordData";
+import { SelectedFolder } from "../Main";
 
 export const LeftSection = ({
   onFolderClick,
@@ -31,6 +32,7 @@ export const LeftSection = ({
   };
   const toggleFolders = () => {
     setShowFolders(!showFolders);
+    onFolderClick(null);
   };
 
   const handleFolderClick = (folderId: number) => {
@@ -38,7 +40,7 @@ export const LeftSection = ({
     if (clickedFolder) {
       onFolderClick(clickedFolder);
     } else {
-      onFolderClick([]);
+      onFolderClick(null);
     }
   };
   return (

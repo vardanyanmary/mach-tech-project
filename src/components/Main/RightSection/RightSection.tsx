@@ -25,10 +25,11 @@ export const RightSection = ({
   selectedFolder,
   selectedFolderItem,
 }: RightSectionProps) => {
+
   return (
     <section className={cls.RightSection}>
       <div className={cls.firstLine}>
-        {selectedFolder && <SelectedFolder selectedFolder={selectedFolder} />}
+        {selectedFolder && !selectedFolderItem && <SelectedFolder selectedFolder={selectedFolder} />}
 
         {selectedFolderItem && (
           <SelectedPasword selectedFolderItem={selectedFolderItem} />

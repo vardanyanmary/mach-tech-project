@@ -3,7 +3,7 @@ import cls from "./CentralSections.module.scss";
 import star from "../../../shared/assets/Vector (8).svg";
 import addPassword from "../../../shared/assets/добавление (1).svg";
 import { PasswordPart } from "./PasswordPart/PasswordPart";
-import { SelectedFolderItem } from "../Main";
+import { SelectedFolder, SelectedFolderItem } from "../Main";
 
 interface CentralSectionProps {
   selectedFolder: {
@@ -16,17 +16,14 @@ interface CentralSectionProps {
   mainFolderPassword: (data: SelectedFolderItem) => void;
 }
 
-export const CentralSection = ({
-  selectedFolder,
-  mainFolderPassword,
-}: CentralSectionProps) => {
-  const [sortOrder, setSortOrder] = useState<"ascending" | "descending">(
-    "ascending"
-  );
+export const CentralSection = ({ selectedFolder, mainFolderPassword }: CentralSectionProps) => {
+  const [sortOrder, setSortOrder] = useState<"ascending" | "descending">( "ascending" );
   const [isSorted, setIsSorted] = useState(false);
 
   const setRightFolder = (id: number) => {
-    const newPassword = selectedFolder?.data.find((val: any) => val.id === id);
+    const newPassword = selectedFolder?.data.find(
+      (val: SelectedFolder) => val.id === id
+    );
     mainFolderPassword(newPassword);
   };
 
