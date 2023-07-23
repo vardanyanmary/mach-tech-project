@@ -9,13 +9,8 @@ import addFolder from "../../../shared/assets/добавление (1).svg";
 import { PopUp } from "../../../shared/ui/Pop-Up/PopUp";
 import { Settings } from "./Settings/Settings";
 import { passwordData } from "../../../constants/passwordData";
-import { SelectedFolder } from "../Main";
 
-export const LeftSection = ({
-  onFolderClick,
-}: {
-  onFolderClick: (folder: any) => void;
-}) => {
+export const LeftSection = ({ onFolderClick }: { onFolderClick: (folder: any) => void }) => {
   const [visibleSearchInput, setVisibleSearchInput] = useState(false);
   const [showFolders, setShowFolders] = useState(false);
   const [isOpenSettings, setIsOpenSettings] = useState(false);

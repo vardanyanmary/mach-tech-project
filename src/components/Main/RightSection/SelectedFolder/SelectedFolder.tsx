@@ -65,7 +65,7 @@ export const SelectedFolder = ({ selectedFolder }: SelectedFolderProps) => {
   return (
     <div>
       {selectedFolder && !selectedFolder.isOpen ? (
-        <>
+        <div className={cls.SelectedFolder}>
           <h2 className={cls.folderName}>{selectedFolder.name}</h2>
           <div className={cls.mainPart}>
             <div className={cls.nameClass}>
@@ -124,7 +124,7 @@ export const SelectedFolder = ({ selectedFolder }: SelectedFolderProps) => {
               ) : null}
             </div>
           </div>
-        </>
+        </div>
       ) : (
         <div className={cls.emptySection}>
           <p>Тут пока ничего нет...</p>

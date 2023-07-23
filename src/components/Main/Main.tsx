@@ -23,11 +23,8 @@ export interface SelectedFolderItem {
 }
 
 export const Main = () => {
-  const [selectedFolder, setSelectedFolder] = useState<SelectedFolder | null>(
-    null
-  );
-  const [selectedFolderItem, setSelectedFolderItem] =
-    useState<SelectedFolderItem | null>(null);
+  const [selectedFolder, setSelectedFolder] = useState<SelectedFolder | null>( null );
+  const [selectedFolderItem, setSelectedFolderItem] = useState<SelectedFolderItem | null>(null);
   const [isPrivateMode, setIsPrivateMode] = useState<boolean>(false);
 
   const handleFolderClick = (folder: SelectedFolder) => {
@@ -39,10 +36,11 @@ export const Main = () => {
   };
 
   return (
-    <div className={cls.Main}>
+    <>
       <button onClick={handleModeChange} className={cls.switch}>
         {isPrivateMode ? "Switch to Public" : "Switch to Private"}
       </button>
+    <div className={cls.Main}>
       {isPrivateMode && (
         <>
           <LeftSection onFolderClick={handleFolderClick} />
@@ -60,5 +58,6 @@ export const Main = () => {
       )}
       {!isPrivateMode && <LeftSection onFolderClick={handleFolderClick} />}
     </div>
+    </>
   );
 };

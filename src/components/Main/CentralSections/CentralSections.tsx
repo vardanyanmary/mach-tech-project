@@ -16,8 +16,13 @@ interface CentralSectionProps {
   mainFolderPassword: (data: SelectedFolderItem) => void;
 }
 
-export const CentralSection = ({ selectedFolder, mainFolderPassword }: CentralSectionProps) => {
-  const [sortOrder, setSortOrder] = useState<"ascending" | "descending">( "ascending" );
+export const CentralSection = ({
+  selectedFolder,
+  mainFolderPassword,
+}: CentralSectionProps) => {
+  const [sortOrder, setSortOrder] = useState<"ascending" | "descending">(
+    "ascending"
+  );
   const [isSorted, setIsSorted] = useState(false);
 
   const setRightFolder = (id: number) => {

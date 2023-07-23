@@ -1,17 +1,17 @@
-import cls from './PasswordPart.module.scss'
-import emptyStar from '../../../../shared/assets/Vector (13).svg'
-import imgIcon from '../../../../shared/assets/Vector (12).svg'
+import cls from './PasswordPart.module.scss';
+import emptyStar from '../../../../shared/assets/Vector (13).svg';
+import imgIcon from '../../../../shared/assets/Vector (12).svg';
 
 interface PasswordPartProps {
     name: string;
     url?: string;
-    id?:number;
-    handleSearch?:any
+    id?: number;
+    handleSearch?: (id: number) => void;
 }
 
-export const PasswordPart = ({ id, name, url, handleSearch } : PasswordPartProps) => {
+export const PasswordPart = ({ id, name, url, handleSearch }: PasswordPartProps) => {
     return (
-        <div className={cls.passwordItem} onClick={() => handleSearch(id)}>
+        <div className={cls.passwordItem} onClick={() => handleSearch && id !== undefined ? handleSearch(id) : null}>
             <div className={cls.namesPart}>
                 <img src={imgIcon} alt="" className={cls.imgIcon} />
                 <span>{name}</span>
