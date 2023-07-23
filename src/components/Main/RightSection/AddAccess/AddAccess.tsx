@@ -6,75 +6,73 @@ import { ReactComponent as Check } from "../../../../shared/assets/Rectangle 398
 import { ReactComponent as Checked } from "../../../../shared/assets/Property 1=Variant2.svg";
 import { addUserItems } from "../../../../constants/addUserItems";
 
-
-const options = [
-    { label: "Полный" },
-    { label: "Чтение" },
-    { label: "Пусто" }
-];
+const options = [{ label: "Полный" }, { label: "Чтение" }, { label: "Пусто" }];
 
 export const AddAccess = () => {
-    const [visibleDetails, setVisibleDetails] = useState(false);
-    const [closeDetails, setCloseDetails] = useState(false);
+  const [items, setItems] = useState(addUserItems);
 
-    const handleClick = () => {
-        setVisibleDetails(!visibleDetails);
-    }
-
-    const CustomStyles: StylesConfig = {
-        control: (baseStyles, state) => ({
-            ...baseStyles,
-            backgroundColor: state.isFocused ? "white" : "#E8F0FF",
-            borderRadius: "100px",
-            border: 'none',
-            gap: "10px",
-            '&:hover': {
-                backgroundColor: "white",
-            }
-        }),
-        placeholder: (provided) => ({
-            ...provided,
-            color: "#000",
-            fontSize: "14px"
-        }),
-    };
-
-    return (
-        <>
-            {!closeDetails ? (
-                <section>
-                    <div className={cls.AddAccess}>
-                        <input type="text" className={cls.inputAddUser} placeholder="Поиск" />
-                        {addUserItems.map((addUserItem) => (
-                            <div className={cls.hover}>
-                                <div className={cls.userItemDiv}>
-                                    <div className={cls.userItem}>
-                                        <Add className={cls.add} />
-                                        {!visibleDetails ? (
-                                            <Check className={cls.check} onClick={handleClick} />
-                                        ) : (
-                                            <Checked className={cls.checked} />
-                                        )}
-                                        {addUserItem.name}
-                                    </div>
-                                    <Select
-                                        options={options}
-                                        placeholder={"Права"}
-                                        styles={CustomStyles}
-                                    />
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-
-                    <div className={cls.buttonsDiv}>
-                        <button className={cls.saveButton}> Сохранить </button>
-                        <button className={cls.cancelButton}> Отменить </button>
-                    </div>
-                </section>
-            ) :
-                null
-            }
-        </>
+  const handleClick = (id: number) => {
+    setItems((prevItems) =>
+      prevItems.map((item) =>
+        item.id === id ? { ...item, checked: !item.checked } : item
+      )
     );
+  };
+
+  const CustomStyles: StylesConfig = {
+    control: (baseStyles, state) => ({
+      ...baseStyles,
+      backgroundColor: state.isFocused ? "white" : "#E8F0FF",
+      borderRadius: "100px",
+      border: "none",
+      gap: "10px",
+      "&:hover": {
+        backgroundColor: "white",
+      },
+    }),
+    placeholder: (provided) => ({
+      ...provided,
+      color: "#000",
+      fontSize: "14px",
+    }),
+  };
+
+  return (
+    <section>
+      <div className={cls.AddAccess}>
+        <input type="text" className={cls.inputAddUser} placeholder="Поиск" />
+        {items.map((addUserItem) => (
+          <div className={cls.hover} key={addUserItem.id}>
+            <div className={cls.userItemDiv}>
+              <div className={cls.userItem}>
+                <Add className={cls.add} />
+                {!addUserItem.checked ? (
+                  <Check
+                    className={cls.check}
+                    onClick={() => handleClick(addUserItem.id)}
+                  />
+                ) : (
+                  <Checked
+                    className={cls.checked}
+                    onClick={() => handleClick(addUserItem.id)}
+                  />
+                )}
+                {addUserItem.name}
+              </div>
+              <Select
+                options={options}
+                placeholder={"Права"}
+                styles={CustomStyles}
+              />
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div className={cls.buttonsDiv}>
+        <button className={cls.saveButton}> Сохранить </button>
+        <button className={cls.cancelButton}> Отменить </button>
+      </div>
+    </section>
+  );
 };

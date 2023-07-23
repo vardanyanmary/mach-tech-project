@@ -26,26 +26,39 @@ export const Main = () => {
   const [selectedFolder, setSelectedFolder] = useState<SelectedFolder | null>(
     null
   );
-  const [selectedFolderItem, setselectedFolderItem] =
+  const [selectedFolderItem, setSelectedFolderItem] =
     useState<SelectedFolderItem | null>(null);
+  const [isPrivateMode, setIsPrivateMode] = useState<boolean>(false);
 
   const handleFolderClick = (folder: SelectedFolder) => {
     setSelectedFolder(folder);
   };
 
+  const handleModeChange = () => {
+    setIsPrivateMode(!isPrivateMode);
+  };
+
   return (
     <div className={cls.Main}>
-      <LeftSection onFolderClick={handleFolderClick} />
-      <CentralSection
-        selectedFolder={selectedFolder}
-        mainFolderPassword={(folder: SelectedFolderItem) =>
-          setselectedFolderItem(folder)
-        }
-      />
-      <RightSection
-        selectedFolder={selectedFolder}
-        selectedFolderItem={selectedFolderItem}
-      />
+      <button onClick={handleModeChange} className={cls.switch}>
+        {isPrivateMode ? "Switch to Public Mode" : "Switch to Private Mode"}
+      </button>
+      {isPrivateMode && (
+        <>
+          <LeftSection onFolderClick={handleFolderClick} />
+          <CentralSection
+            selectedFolder={selectedFolder}
+            mainFolderPassword={(folder: SelectedFolderItem) =>
+              setSelectedFolderItem(folder)
+            }
+          />
+          <RightSection
+            selectedFolder={selectedFolder}
+            selectedFolderItem={selectedFolderItem}
+          />
+        </>
+      )}
+      {!isPrivateMode && <LeftSection onFolderClick={handleFolderClick} />}
     </div>
   );
 };
