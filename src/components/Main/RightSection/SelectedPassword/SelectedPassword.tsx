@@ -123,7 +123,7 @@ export const SelectedPasword = ({
             <p>Пароль:</p>
             <input
               type={showPassword ? "text" : "password"}
-              value={password}
+              value={selectedFolderItem.user.password}
               onChange={handlePasswordChange}
               className={cls.nameInput}
             />
@@ -138,7 +138,7 @@ export const SelectedPasword = ({
             <p>URL:</p>
             <input
               type="text"
-              value={url}
+              value={selectedFolderItem.user.url}
               onChange={handleUrlChange}
               className={cls.nameInput}
             />
