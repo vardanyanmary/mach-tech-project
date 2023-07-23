@@ -15,16 +15,10 @@ export const LeftSection = ({ onFolderClick }: { onFolderClick: (folder: any) =>
   const [showFolders, setShowFolders] = useState(false);
   const [isOpenSettings, setIsOpenSettings] = useState(false);
 
-  const handleCloseSettings = () => {
-    setIsOpenSettings(false);
-  };
-  const handleOpenSettings = () => {
-    setIsOpenSettings(true);
-  };
+  const handleCloseSettings = () => { setIsOpenSettings(false) };
+  const handleOpenSettings = () => { setIsOpenSettings(true) };
 
-  const handleClick = () => {
-    setVisibleSearchInput(!visibleSearchInput);
-  };
+  const handleClick = () => { setVisibleSearchInput(!visibleSearchInput) };
   const toggleFolders = () => {
     setShowFolders(!showFolders);
     onFolderClick(null);
@@ -46,8 +40,7 @@ export const LeftSection = ({ onFolderClick }: { onFolderClick: (folder: any) =>
             src={folder}
             alt=""
             onClick={toggleFolders}
-            className={cls.toggleImg}
-          />
+            className={cls.toggleImg} />
         )}
         {!visibleSearchInput && (
           <img src={key} alt="" className={cls.toggleImg} />
@@ -57,8 +50,7 @@ export const LeftSection = ({ onFolderClick }: { onFolderClick: (folder: any) =>
             src={settings}
             alt=""
             className={cls.toggleImg}
-            onClick={handleOpenSettings}
-          />
+            onClick={handleOpenSettings} />
         )}
         {isOpenSettings ? (
           <PopUp isOpen={isOpenSettings} onClose={handleCloseSettings}>
@@ -69,15 +61,13 @@ export const LeftSection = ({ onFolderClick }: { onFolderClick: (folder: any) =>
           <input
             type="text"
             placeholder="Поиск..."
-            className={cls.searchInput}
-          />
+            className={cls.searchInput} />
         )}
         <img
           src={search}
           alt=""
           onClick={handleClick}
-          className={cls.toggleImg}
-        />
+          className={cls.toggleImg} />
       </div>
       {showFolders && (
         <div className={cls.passwordData}>
@@ -85,8 +75,7 @@ export const LeftSection = ({ onFolderClick }: { onFolderClick: (folder: any) =>
             <div
               className={cls.foldersListItem}
               onClick={() => handleFolderClick(folder.id)}
-              key={folder.id}
-            >
+              key={folder.id} >
               <div className={cls.foldersListItemDiv}>
                 <img src={folderIcon} alt="" className={cls.folderIcon} />
                 <p>{folder.name}</p>

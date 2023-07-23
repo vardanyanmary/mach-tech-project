@@ -8,9 +8,7 @@ import { folderIcons } from "../../../../constants/folderIcons";
 export const ChangeFolder = () => {
   const [visibleDetails, setVisibleDetails] = useState(false);
 
-  const handleClick = () => {
-    setVisibleDetails(!visibleDetails);
-  };
+  const handleClick = () => { setVisibleDetails(!visibleDetails) };
 
   return (
     <>
@@ -68,9 +66,7 @@ export const ChangeFolder = () => {
             <button className={cls.cancelButton}> Отменить</button>
           </div>
         </section>
-      ) : (
-        <section></section>
-      )}
+      ) : ( null )}
     </>
   );
 };

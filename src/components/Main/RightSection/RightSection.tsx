@@ -25,7 +25,6 @@ export const RightSection = ({
   selectedFolder,
   selectedFolderItem,
 }: RightSectionProps) => {
-
   return (
     <section className={cls.RightSection}>
       <div className={cls.firstLine}>

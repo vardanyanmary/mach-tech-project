@@ -28,39 +28,21 @@ export const SelectedFolder = ({ selectedFolder }: SelectedFolderProps) => {
   const [isOpenChange, setIsOpenChange] = useState(false);
   const [isCopiedLink, setIsCopiedLink] = useState(false);
 
-  const handleCloseBlock = () => {
-    setIsOpenBlock(false);
-  };
-  const handleOpenBlock = () => {
-    setIsOpenBlock(true);
-  };
-  const handleDescriptionChange = (
-    event: React.ChangeEvent<HTMLTextAreaElement>
-  ) => {
+  const handleCloseBlock = () => { setIsOpenBlock(false) };
+  const handleOpenBlock = () => { setIsOpenBlock(true) };
+  const handleDescriptionChange = ( event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setFolderDescription(event.target.value);
   };
 
   //------------------------
-  const handleCloseHistory = () => {
-    setIsOpenStory(false);
-  };
-  const handleOpenHistory = () => {
-    setIsOpenStory(true);
-  };
+  const handleCloseHistory = () => { setIsOpenStory(false) };
+  const handleOpenHistory = () => { setIsOpenStory(true) };
   //------------------------
-  const handleCloseChange = () => {
-    setIsOpenChange(false);
-  };
-  const handleOpenChange = () => {
-    setIsOpenChange(true);
-  };
+  const handleCloseChange = () => { setIsOpenChange(false) };
+  const handleOpenChange = () => { setIsOpenChange(true) };
   //------------------------
-  const handleCloseCopied = () => {
-    setIsCopiedLink(false);
-  };
-  const handleOpenCopied = () => {
-    setIsCopiedLink(true);
-  };
+  const handleCloseCopied = () => { setIsCopiedLink(false) };
+  const handleOpenCopied = () => { setIsCopiedLink(true) };
 
   return (
     <div>

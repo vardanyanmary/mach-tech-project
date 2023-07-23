@@ -13,25 +13,18 @@ export const ChangePassword = () => {
   const [comment, setComment] = useState("");
   const [showMessage, setShowMessage] = useState(false);
 
-  const handleClick = () => {
-    setVisibleDetails(!visibleDetails);
-  };
+  const handleClick = () => { setVisibleDetails(!visibleDetails) };
 
   const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setPassword(event.target.value);
   };
-  const handleRepeatPasswordChange = (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => {
+  const handleRepeatPasswordChange = ( event: React.ChangeEvent<HTMLInputElement> ) => {
     setRepeatPassword(event.target.value);
   };
 
-  const handleCommentChange = (
-    event: React.ChangeEvent<HTMLTextAreaElement>
-  ) => {
+  const handleCommentChange = ( event: React.ChangeEvent<HTMLTextAreaElement> ) => {
     const inputText = event.target.value;
     setComment(inputText);
-
     if (inputText.length > 1200) {
       setShowMessage(true);
     } else {
@@ -129,7 +122,6 @@ export const ChangePassword = () => {
                 className={cls.chapterInput}
               />
             </div>
-
             <div className={cls.partsDiv}>
               <span className={cls.changeFolderTitle}>Комментарий:</span>
               <div className={cls.comments}>
@@ -147,7 +139,6 @@ export const ChangePassword = () => {
                 )}
               </div>
             </div>
-
             <div className={cls.partsDiv}>
               <span className={cls.changeFolderTitle}>Цвет пароля:</span>
               <div className={cls.colorsDiv}>
@@ -163,9 +154,7 @@ export const ChangePassword = () => {
             <button className={cls.cancelButton}> Отменить</button>
           </div>
         </section>
-      ) : (
-        <section></section>
-      )}
+      ) : ( null )}
     </>
   );
 };

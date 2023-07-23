@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import cls from "./CentralSections.module.scss";
 import star from "../../../shared/assets/Vector (8).svg";
 import addPassword from "../../../shared/assets/добавление (1).svg";
@@ -38,14 +38,12 @@ export const CentralSection = ({
     sortedData.sort((a, b) => {
       const nameA = a.name.toLowerCase();
       const nameB = b.name.toLowerCase();
-
       if (sortOrder === "ascending") {
         return nameA.localeCompare(nameB);
       } else {
         return nameB.localeCompare(nameA);
       }
     });
-
     setSortOrder((prevOrder) =>
       prevOrder === "ascending" ? "descending" : "ascending"
     );
@@ -69,7 +67,6 @@ export const CentralSection = ({
         <span>URL</span>
         <img src={star} alt="" />
       </div>
-
       {selectedFolder?.data && (
         <div>
           {selectedFolder?.data?.map(
