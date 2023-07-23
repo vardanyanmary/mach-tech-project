@@ -3,26 +3,14 @@ import cls from "./CentralSections.module.scss";
 import star from "../../../shared/assets/Vector (8).svg";
 import addPassword from "../../../shared/assets/добавление (1).svg";
 import { PasswordPart } from "./PasswordPart/PasswordPart";
-import { SelectedFolder, SelectedFolderItem } from "../Main";
-
-interface CentralSectionProps {
-  selectedFolder: {
-    id: number;
-    name: string;
-    content: string[];
-    url: string[];
-    data?: any;
-  } | null;
-  mainFolderPassword: (data: SelectedFolderItem) => void;
-}
+import { CentralSectionProps } from "../../../constants/centralSectionProps";
+import { SelectedFolder } from "../../../constants/selectedFolder";
 
 export const CentralSection = ({
   selectedFolder,
   mainFolderPassword,
 }: CentralSectionProps) => {
-  const [sortOrder, setSortOrder] = useState<"ascending" | "descending">(
-    "ascending"
-  );
+  const [sortOrder, setSortOrder] = useState<"ascending" | "descending">( "ascending" );
   const [isSorted, setIsSorted] = useState(false);
 
   const setRightFolder = (id: number) => {
@@ -93,4 +81,4 @@ export const CentralSection = ({
       )}
     </section>
   );
-};
+}

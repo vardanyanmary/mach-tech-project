@@ -3,24 +3,8 @@ import cls from "./Main.module.scss";
 import { RightSection } from "./RightSection/RightSection";
 import { CentralSection } from "./CentralSections/CentralSections";
 import { LeftSection } from "./LeftSection/LeftSection";
-
-export interface SelectedFolder {
-  id: number;
-  name: string;
-  content: string[];
-  url: string[];
-  onClick: () => void;
-  isOpen: boolean;
-}
-
-export interface SelectedFolderItem {
-  user: {
-    login: string;
-    password: string;
-    url: string;
-  };
-  isOpen: boolean;
-}
+import { SelectedFolder } from "../../constants/selectedFolder";
+import { SelectedFolderItem } from "../../constants/selectedFolderItem";
 
 export const Main = () => {
   const [selectedFolder, setSelectedFolder] = useState<SelectedFolder | null>( null );
