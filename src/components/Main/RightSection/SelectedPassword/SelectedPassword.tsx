@@ -5,6 +5,7 @@ import history from "../../../../shared/assets/Vector (15).svg";
 import change from "../../../../shared/assets/Vector (16).svg";
 import link from "../../../../shared/assets/Link_Break.svg";
 import folder from "../../../../shared/assets/Vector (19).svg";
+import show from "../../../../shared/assets/Vector (20).svg";
 import { PopUp } from "../../../../shared/ui/Pop-Up/PopUp";
 import { Access } from "../Access/Access";
 import { History } from "../History/History";
@@ -23,7 +24,9 @@ interface SelectedFolderProps {
   } | null;
 }
 
-export const SelectedPasword = ({ selectedFolderItem}: SelectedFolderProps) => {
+export const SelectedPasword = ({
+  selectedFolderItem,
+}: SelectedFolderProps) => {
   const [password, setPassword] = useState(
     selectedFolderItem ? selectedFolderItem.user.password : ""
   );
@@ -32,44 +35,71 @@ export const SelectedPasword = ({ selectedFolderItem}: SelectedFolderProps) => {
   );
   const [comments, setComments] = useState(
     selectedFolderItem && selectedFolderItem.user.comments
-      ? selectedFolderItem.user.comments : ""
+      ? selectedFolderItem.user.comments
+      : ""
   );
   const [isOpenBlock, setIsOpenBlock] = useState(false);
   const [isOpenStory, setIsOpenStory] = useState(false);
   const [isOpenChange, setIsOpenChange] = useState(false);
   const [isCopiedLink, setIsCopiedLink] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
-  const handleCloseBlock = () => { setIsOpenBlock(false)};
-  const handleOpenBlock = () => { setIsOpenBlock(true)};
-  const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => { setPassword(event.target.value)};
-  const handleUrlChange = (event: React.ChangeEvent<HTMLInputElement>) => { setUrl(event.target.value)};
-  const handleCommentsChange = ( event: React.ChangeEvent<HTMLTextAreaElement>) => { setComments(event.target.value)};
-
+  const handleCloseBlock = () => {
+    setIsOpenBlock(false);
+  };
+  const handleOpenBlock = () => {
+    setIsOpenBlock(true);
+  };
+  const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setPassword(event.target.value);
+  };
+  const handleUrlChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setUrl(event.target.value);
+  };
+  const handleCommentsChange = (
+    event: React.ChangeEvent<HTMLTextAreaElement>
+  ) => {
+    setComments(event.target.value);
+  };
   //------------------------
-  const handleCloseHistory = () => { setIsOpenStory(false) };
-  const handleOpenHistory = () => { setIsOpenStory(true) };
+  const handleCloseHistory = () => {
+    setIsOpenStory(false);
+  };
+  const handleOpenHistory = () => {
+    setIsOpenStory(true);
+  };
   //------------------------
-  const handleCloseChange = () => { setIsOpenChange(false) };
-  const handleOpenChange = () => { setIsOpenChange(true) };
+  const handleCloseChange = () => {
+    setIsOpenChange(false);
+  };
+  const handleOpenChange = () => {
+    setIsOpenChange(true);
+  };
   //------------------------
-  const handleCloseCopied = () => { setIsCopiedLink(false) };
-  const handleOpenCopied = () => { setIsCopiedLink(true) };
+  const handleCloseCopied = () => {
+    setIsCopiedLink(false);
+  };
+  const handleOpenCopied = () => {
+    setIsCopiedLink(true);
+  };
   //------------------------
   const handleCopyPassword = () => {
     if (password) {
-      navigator.clipboard.writeText(password);// console.log(password);
+      navigator.clipboard.writeText(password); // console.log(password);
     }
   };
   const handleCopyURL = () => {
     if (url) {
-      navigator.clipboard.writeText(url);// console.log(url);
+      navigator.clipboard.writeText(url); // console.log(url);
     }
   };
-
   const handleCopyLogin = () => {
     if (selectedFolderItem?.user.login) {
       navigator.clipboard.writeText(selectedFolderItem.user.login); //console.log(selectedFolderItem.user.login);
     }
+  };
+  const toggleShowPassword = () => {
+    setShowPassword((prevState) => !prevState);
   };
 
   return (
@@ -85,19 +115,22 @@ export const SelectedPasword = ({ selectedFolderItem}: SelectedFolderProps) => {
               className={cls.nameInput}
               readOnly
             />
-            <div className={cls.changeButtons} onClick={handleCopyLogin}>
+            <div className={cls.copiedButtons} onClick={handleCopyLogin}>
               <img src={folder} alt="" />
             </div>
           </div>
           <div className={cls.nameClass}>
             <p>Пароль:</p>
             <input
-              type="password"
+              type={showPassword ? "text" : "password"}
               value={password}
               onChange={handlePasswordChange}
               className={cls.nameInput}
             />
-            <div className={cls.changeButtons} onClick={handleCopyPassword}>
+            <button onClick={toggleShowPassword} className={cls.showButton}>
+              <img src={show} alt={showPassword ? "Hide" : "Show"}/>
+            </button>
+            <div className={cls.copiedButtons} onClick={handleCopyPassword}>
               <img src={folder} alt="" />
             </div>
           </div>
@@ -109,7 +142,7 @@ export const SelectedPasword = ({ selectedFolderItem}: SelectedFolderProps) => {
               onChange={handleUrlChange}
               className={cls.nameInput}
             />
-            <div className={cls.changeButtons} onClick={handleCopyURL}>
+            <div className={cls.copiedButtons} onClick={handleCopyURL}>
               <img src={folder} alt="" />
             </div>
           </div>
