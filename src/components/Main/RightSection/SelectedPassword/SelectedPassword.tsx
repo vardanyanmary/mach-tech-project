@@ -62,23 +62,13 @@ export const SelectedPasword = ({
     setComments(event.target.value);
   };
   //------------------------
-  const handleCloseHistory = () => {
-    setIsOpenStory(false);
-  };
-  const handleOpenHistory = () => {
-    setIsOpenStory(true);
-  };
+  const handleCloseHistory = () => { setIsOpenStory(false) };
+  const handleOpenHistory = () => { setIsOpenStory(true) };
   //------------------------
-  const handleCloseChange = () => {
-    setIsOpenChange(false);
-  };
-  const handleOpenChange = () => {
-    setIsOpenChange(true);
-  };
+  const handleCloseChange = () => { setIsOpenChange(false) };
+  const handleOpenChange = () => { setIsOpenChange(true) };
   //------------------------
-  const handleCloseCopied = () => {
-    setIsCopiedLink(false);
-  };
+  const handleCloseCopied = () => { setIsCopiedLink(false) };
   const handleOpenCopied = () => {
     setIsCopiedLink(true);
   };

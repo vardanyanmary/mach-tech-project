@@ -2,7 +2,6 @@ import { useState } from "react";
 import cls from "./Settings.module.scss";
 import close from "../../../../shared/assets/Group 10.svg";
 import { AddAccess } from "../../RightSection/AddAccess/AddAccess";
-// import { PopUp } from '../../shared/ui/Pop-Up/Pop-Up';
 
 export const Settings = () => {
   const [showAddUser, setShowAddUser] = useState(false);
